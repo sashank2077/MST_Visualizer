@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break; // Safety break
             }
 
-            showToast(`✓ Guaranteed cycle graph ready!`, 'success');
+            showToast(`Guaranteed cycle graph ready!`, 'success');
         } else if (type === 'complete') {
             for (let i = 0; i < nodeCount; i++) {
                 for (let j = i + 1; j < nodeCount; j++) {
@@ -631,8 +631,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateAlgorithmUI() {
         const selectedAlgo = document.querySelector('.algorithm-btn.active').dataset.algo;
-        const primInfo = document.getElementById('primInfoPanel');
-        const kruskalInfo = document.getElementById('kruskalInfoPanel');
+        const primInfo = document.getElementById('primInfoSection');
+        const kruskalInfo = document.getElementById('kruskalInfoSection');
 
         primInfo.style.display = selectedAlgo === 'prim' ? 'block' : 'none';
         kruskalInfo.style.display = selectedAlgo === 'kruskal' ? 'block' : 'none';

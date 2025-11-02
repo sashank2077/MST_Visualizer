@@ -25,27 +25,6 @@
                     </div>
                 </div>
 
-                <div class="control-group">
-                    <div id="primInfoPanel" class="algorithm-details">
-                        <h3>About Prim's Algorithm</h3>
-                        <p>A greedy algorithm that grows a single MST by adding the cheapest edge connecting a node in the tree to a node outside the tree.</p>
-                        <p><strong>Analogy:</strong> Powering one house, then finding the shortest wire to connect a new house to your powered network.</p>
-                        <ul>
-                            <li><strong>Time Complexity:</strong> O(E log V)</li>
-                            <li><strong>Best for:</strong> Dense graphs.</li>
-                        </ul>
-                    </div>
-                    <div id="kruskalInfoPanel" class="algorithm-details" style="display: none;">
-                        <h3>About Kruskal's Algorithm</h3>
-                        <p>A greedy algorithm that builds an MST by adding the lowest-weight edges that do not form a cycle.</p>
-                        <p><strong>Analogy:</strong> Building the cheapest bridges first, but skipping any that connect two islands already reachable from each other.</p>
-                        <ul>
-                            <li><strong>Time Complexity:</strong> O(E log E)</li>
-                            <li><strong>Best for:</strong> Sparse graphs.</li>
-                        </ul>
-                    </div>
-                </div>
-
                 <div class="control-group" id="primOptions">
                     <label for="startNodeSelect">Prim's Start Node:</label>
                     <select id="startNodeSelect" class="custom-select"></select>
@@ -67,7 +46,7 @@
                         </div>
                         
                         <div class="button-group">
-                             <select id="graphTypeSelect" class="custom-select">
+                            <select id="graphTypeSelect" class="custom-select">
                                 <option value="random">Random Connected Graph</option>
                                 <option value="cycle">Guaranteed Cycle</option>
                                 <option value="complete">Complete Graph</option>
@@ -87,7 +66,7 @@
                         </div>
                         
                         <div class="animation-controls-panel">
-                             <div class="control-row">
+                            <div class="control-row">
                                 <label for="animationSpeed">Animation Speed:</label>
                                 <input type="range" id="animationSpeed" min="1" max="10" value="5">
                                 <span id="animationSpeedValue">Medium</span>
@@ -108,7 +87,6 @@
                     </div>
 
                     <div class="vis-right">
-                        <!-- All right-side content is now in this column -->
                         <div class="info-panel steps-panel">
                             <div class="info-title">Algorithm Steps</div>
                             <div class="info-content" id="algorithm-steps-panel">
@@ -147,6 +125,69 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- ADD THIS NEW SECTION AT THE BOTTOM -->
+        <div class="algorithm-info-sections">
+            <div id="primInfoSection" class="algorithm-info-panel">
+                <h2>Prim's Algorithm</h2>
+                <p>A greedy algorithm that builds the Minimum Spanning Tree (MST) by starting from an arbitrary node and repeatedly adding the shortest edge that connects a node in the MST to a node outside it.</p>
+                
+                <h4>Key Steps:</h4>
+                <ul>
+                    <li>Start with any node as the initial MST</li>
+                    <li>Maintain a priority queue of edges connecting MST nodes to non-MST nodes</li>
+                    <li>At each step, add the minimum-weight edge from the priority queue</li>
+                    <li>Stop when all nodes are included in the MST</li>
+                </ul>
+                
+                <h4>Algorithm Properties:</h4>
+                <ul>
+                    <li><strong>Time Complexity:</strong> O(E log V) using binary heaps</li>
+                    <li><strong>Space Complexity:</strong> O(V + E)</li>
+                    <li><strong>Optimality:</strong> Always produces a correct MST</li>
+                    <li><strong>Best For:</strong> Dense graphs where E ≈ V²</li>
+                    <li><strong>Data Structures:</strong> Priority Queue, Visited Set</li>
+                </ul>
+                
+                <h4>Real-World Applications:</h4>
+                <ul>
+                    <li>Network design (telecommunications, roads)</li>
+                    <li>Cluster analysis</li>
+                    <li>Image segmentation</li>
+                    <li>Circuit design</li>
+                </ul>
+            </div>
+
+            <div id="kruskalInfoSection" class="algorithm-info-panel" style="display: none;">
+                <h2>Kruskal's Algorithm</h2>
+                <p>A greedy algorithm that builds the MST by sorting all edges by weight and adding them in ascending order, skipping any edge that would form a cycle.</p>
+                
+                <h4>Key Steps:</h4>
+                <ul>
+                    <li>Sort all edges in non-decreasing order of weight</li>
+                    <li>Initialize a forest (each node as separate tree)</li>
+                    <li>Iterate through sorted edges, adding each edge if it connects different trees</li>
+                    <li>Stop when V-1 edges are added (complete MST)</li>
+                </ul>
+                
+                <h4>Algorithm Properties:</h4>
+                <ul>
+                    <li><strong>Time Complexity:</strong> O(E log E) for sorting + O(E α(V)) for union-find</li>
+                    <li><strong>Space Complexity:</strong> O(V + E)</li>
+                    <li><strong>Optimality:</strong> Always produces a correct MST</li>
+                    <li><strong>Best For:</strong> Sparse graphs where E ≈ V</li>
+                    <li><strong>Data Structures:</strong> Union-Find (Disjoint Set), Sorted Edges</li>
+                </ul>
+                
+                <h4>Real-World Applications:</h4>
+                <ul>
+                    <li>LAN network design</li>
+                    <li>Electric grid construction</li>
+                    <li>Airline route planning</li>
+                    <li>Water supply networks</li>
+                </ul>
             </div>
         </div>
     </div>
