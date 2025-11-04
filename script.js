@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isConsidering = state.consideringEdge && state.consideringEdge.from === edge.from && state.consideringEdge.to === edge.to;
 
             if (edge.isInMST) { ctx.strokeStyle = '#4CAF50'; ctx.lineWidth = 4; }
-            else if (isInvalid) { ctx.strokeStyle = '#f44336'; ctx.lineWidth = 4; }
+            else if (isInvalid) { ctx.strokeStyle = '#f44336'; ctx.lineWidth = 6; }
             else if (isConsidering) { ctx.strokeStyle = '#FF9800'; ctx.lineWidth = 4; }
             else { ctx.strokeStyle = isDarkMode ? '#9C27B0' : '#6a1b9a'; ctx.lineWidth = 2; }
             
