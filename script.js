@@ -403,13 +403,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = document.getElementById('graphTypeSelect').value;
         let nodeCount = parseInt(document.getElementById('nodeCount').value);
         
-        if (type === 'cycle' && nodeCount < 3) {
-            nodeCount = 5;
-            document.getElementById('nodeCount').value = 5;
-            document.getElementById('nodeCountValue').textContent = '5';
-            showToast("Cycle graphs require at least 3 nodes. Using 5 nodes.", "warning");
-        }
-        
         const generateCycleGraphLogic = () => {
             graph.nodes = [];
             graph.edges = [];
